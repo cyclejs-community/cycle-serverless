@@ -17,17 +17,17 @@ module.exports = function (context, ...inArgs) {
 
   function main(sources) {
     const input$ = sources.FaaS
-        .map((s) => `context.req.originalUrl: ${s.context.req.originalUrl} /
-                     inArgs[0]: ${JSON.stringify(s.inArgs[0])}`)
+      .map((s) => `context.req.originalUrl: ${s.context.req.originalUrl} /
+                   inArgs[0]: ${JSON.stringify(s.inArgs[0])}`)
 
     const ticks$ = xs.periodic(1000)
-        .map(t => (t + 1) * 100)
+      .map(t => (t + 1) * 100)
 
     const log$ = xs.merge(input$, ticks$)
 
     const trigger$ = ticks$
-        .drop(2)
-        .debug((i) => logger(`trigger tick: ${i}`))
+      .drop(2)
+      .debug((i) => logger(`trigger tick: ${i}`))
 
     const request$ = trigger$
       .map(() => ({

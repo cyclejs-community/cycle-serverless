@@ -18,7 +18,7 @@ module.exports = function makeFunctionsDriver(context, inArgs, dispwrap) {
 
     return xs.createWithMemory({
       start: listener => {
-          setTimeout(() => {listener.next({context, inArgs})}, 1)
+        setTimeout(() => {listener.next({context, inArgs})}, 1)
       },
       stop: () => {},
     })
