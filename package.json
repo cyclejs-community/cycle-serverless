@@ -1,0 +1,31 @@
+{
+  "name": "cycle-serverless",
+  "version": "1.0.0",
+  "description": "Cycle.js driver for serverless (Azure Functions)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@cycle/http": "^11.1.0",
+    "@cycle/xstream-run": "^3.1.0",
+    "xstream": "^6.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyclejs-community/cycle-serverless.git"
+  },
+  "keywords": [
+    "serverless",
+    "cyclejs",
+    "xstream",
+    "javascript",
+    "AzureFunctions"
+  ],
+  "author": "Steve Lee <steve@opendirective.com> (http://opendirective.net)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cyclejs-community/cycle-serverless/issues"
+  },
+  "homepage": "https://github.com/cyclejs-community/cycle-serverless#readme"
+}
