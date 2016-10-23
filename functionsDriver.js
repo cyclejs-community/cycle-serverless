@@ -1,6 +1,6 @@
 const xs = require('xstream').default
 
-module.exports = function makeFunctionsDriver(context, dispwrap, inArgs) {
+module.exports = function makeFunctionsDriver(context, inArgs, dispwrap) {
 
     function driver(s$) {
         s$.addListener({ next: (i) => { setTimeout(() => {  // next tick to allow other listenerns to be iterated

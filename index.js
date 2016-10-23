@@ -5,7 +5,7 @@ const makeFunctionsDriver = require('./functionsDriver.js')
 
 module.exports = function (context, ...inArgs) {
     const dispwrap = {}             // because JS doesn't do pass-by-ref
-    const {driver: functionsDriver, logger} = makeFunctionsDriver(context, dispwrap, inArgs)
+    const {driver: functionsDriver, logger} = makeFunctionsDriver(context, inArgs, dispwrap)
 
     const drivers = {
         FaaS: functionsDriver,
