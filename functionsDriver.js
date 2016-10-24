@@ -1,6 +1,7 @@
 const xs = require('xstream').default
 
 module.exports = function makeFunctionsDriver(context, inArgs, dispwrap) {
+  const log = (...a) => context.log(...a)
 
   function driver(s$) {
     s$.addListener({ next: (i) => { setTimeout(() => {  // next tick to allow other listenerns to be iterated
@@ -16,14 +17,16 @@ module.exports = function makeFunctionsDriver(context, inArgs, dispwrap) {
                       complete: () => {}
     })
 
-    return xs.createWithMemory({
+    const stream = xs.createWithMemory({
       start: listener => {
         setTimeout(() => {listener.next({context, inArgs})}, 1)
       },
       stop: () => {},
     })
+    stream.log = log
+    return stream
   }
 
-  const logger = a => context.log(a)
-  return {driver, logger}
+  driver.log = log
+  return driver
 }
